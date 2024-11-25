@@ -64,7 +64,7 @@ const Cart = () => {
                                 <img
                                   src={item.image}
                                   // className="w-100"
-                                  alt={item.title}
+                                  alt={item.name}
                                   width={100}
                                   height={75}
                                 />
@@ -73,7 +73,7 @@ const Cart = () => {
 
                             <div className="col-lg-5 col-md-6">
                               <p>
-                                <strong>{item.title}</strong>
+                                <strong>{item.name}</strong>
                               </p>
                               {/* <p>Color: blue</p>
                               <p>Size: M</p> */}
@@ -108,7 +108,7 @@ const Cart = () => {
                               <p className="text-start text-md-center">
                                 <strong>
                                   <span className="text-muted">{item.qty}</span>{" "}
-                                  x ${item.price}
+                                  x Rs{item.price}
                                 </strong>
                               </p>
                             </div>
@@ -129,18 +129,18 @@ const Cart = () => {
                   <div className="card-body">
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                        Products ({totalItems})<span>${Math.round(subtotal)}</span>
+                        Products ({totalItems})<span>Rs{Math.round(subtotal)}</span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                         Shipping
-                        <span>${shipping}</span>
+                        <span>Rs{shipping}</span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                         <div>
                           <strong>Total amount</strong>
                         </div>
                         <span>
-                          <strong>${Math.round(subtotal + shipping)}</strong>
+                          <strong>Rs{Math.round(subtotal + shipping)}</strong>
                         </span>
                       </li>
                     </ul>
@@ -163,7 +163,6 @@ const Cart = () => {
 
   return (
     <>
-      <Navbar />
       <div className="container my-3 py-3">
         <h1 className="text-center">Cart</h1>
         <hr />

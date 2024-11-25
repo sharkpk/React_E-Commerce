@@ -17,9 +17,12 @@ import {
   Register,
   Checkout,
   PageNotFound,
+  CreateProduct,
+  Orders,
 } from "./pages";
 import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
+import { AuthWrapper } from "./components";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,17 +30,21 @@ root.render(
     <ScrollToTop>
       <Provider store={store}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/product" element={<Products />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/" element={<AuthWrapper />}>
+            <Route path="" index element={<Home />} />
+            <Route path="product" element={<Products />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="create-product" element={<CreateProduct />} />
+            <Route path="product/:id" element={<Product />} />
+            <Route path="about" element={<AboutPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="/product/*" element={<PageNotFound />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
-          <Route path="/product/*" element={<PageNotFound />} />
         </Routes>
       </Provider>
     </ScrollToTop>
